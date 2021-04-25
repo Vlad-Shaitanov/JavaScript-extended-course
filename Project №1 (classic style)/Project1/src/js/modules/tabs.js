@@ -1,11 +1,12 @@
 "use strict";
 
-const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
-	/*Функция принимает 4 аргумента:
+const tabs = (headerSelector, tabSelector, contentSelector, activeClass, display = "block") => {
+	/*Функция принимает аргументы:
 	1- селектор общего блока табов
 	2- селектор выбранного таба
 	3- селектор контента выбранного таба
-	4- активный класс стилизации таба*/
+	4- активный класс стилизации таба
+	5- тип отображения*/
 
 	const header = document.querySelector(headerSelector),
 		tab = document.querySelectorAll(tabSelector),
@@ -26,7 +27,7 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
 	const showTabContent = (i = 0) => {
 		//Параметр по умолч. 0, чтобы сделать изначально активным первый таб
 		//Показываем контент нужного таба
-		content[i].style.display = "block";
+		content[i].style.display = display;
 
 		//Добавляем активный класс выбранному табу
 		tab[i].classList.add(activeClass);
