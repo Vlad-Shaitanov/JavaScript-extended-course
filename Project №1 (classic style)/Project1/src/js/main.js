@@ -4,9 +4,15 @@ import "./slider";
 import modals from "./modules/modals";
 import tabs from "./modules/tabs";
 import forms from "./modules/forms";
+import changeModalState from "./modules/changeModalState";
 
 window.addEventListener("DOMContentLoaded", () => {
 	modals();
+
+	//Состояние калькулятора
+	let modalState = {};
+
+	changeModalState(modalState);
 
 	//Табы блока остекления
 	tabs(".glazing_slider", ".glazing_block", ".glazing_content", "active");
@@ -15,5 +21,5 @@ window.addEventListener("DOMContentLoaded", () => {
 	//Табы калькулятора
 	tabs(".balcon_icons", ".balcon_icons_img", ".big_img > img", "do_image_more", "inline-block");
 
-	forms();
+	forms(modalState);
 });
