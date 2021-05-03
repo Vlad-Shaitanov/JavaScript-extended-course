@@ -153,7 +153,8 @@ const modals = () => {
 	bindModal(".fixed-gift", ".popup-gift", ".popup-gift .popup-close", true);
 	openByScroll(".fixed-gift");
 
-	showModalByTime(".popup-consultation", 6000);
+	//Попап при отсутствии действий на странице
+	//showModalByTime(".popup-consultation", 6000);
 };
 
 export default modals;
