@@ -1,6 +1,6 @@
 "use strict";
 
-//import checkNumInputs from "./checkNumInputs";
+import { postData } from "../services/requests";
 
 const forms = () => {
 	//Получаем все формы со страницы
@@ -32,16 +32,7 @@ const forms = () => {
 	};
 
 	//Отправка запроса
-	const postData = async (url, data) => {
 
-		//Отправляем запрос
-		let res = await fetch(url, {
-			method: "POST",
-			body: data
-		});
-
-		return await res.text();
-	};
 
 	//Очистка инпутов формы
 	const clearInputs = () => {
