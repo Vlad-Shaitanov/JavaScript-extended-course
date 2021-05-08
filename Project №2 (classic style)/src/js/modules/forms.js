@@ -106,6 +106,12 @@ const forms = () => {
 			item.closest(".popup-design") || item.classList.contains("calc_form") ? api = path.designer : api = path.question;
 			console.log(api);
 
+			// if (item.getAttribute('data-calc') === "calculation") {
+			// 	for (let key in state) {
+			// 		formData.append(key, state[key]);
+			// 	}
+			// }
+
 			postData(api, formData)
 				.then(res => {
 					console.log(res);
