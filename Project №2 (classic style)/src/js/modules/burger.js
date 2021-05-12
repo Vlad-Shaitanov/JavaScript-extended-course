@@ -20,10 +20,13 @@ const burger = (menuSelector, burgerSelector) => {
 		}
 	});
 
-	if (window.screen.availWidth > 992) {
-		//Если ширина экрана больше 992px, то скрываем бургер
-		menuElem.style.display = "none";
-	}
+	window.addEventListener("resize", () => {
+		if (window.screen.availWidth > 992) {
+			//Если ширина экрана больше 992px, то скрываем бургер
+			menuElem.style.display = "none";
+		}
+
+	});
 };
 
 export default burger;
