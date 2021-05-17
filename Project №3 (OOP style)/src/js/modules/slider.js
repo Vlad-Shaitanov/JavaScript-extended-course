@@ -26,6 +26,21 @@ export default class Slider {
 			this.slideIndex = this.slides.length;
 		}
 
+		//Переключение всплывающего блока на 3 слайде
+		try {
+			this.hanson.style.opacity = "0";
+
+			if (n === 3) {//Если мы на 3 слайде
+				this.hanson.classList.add("animated");
+				setTimeout(() => {
+					this.hanson.style.opacity = "1";
+					this.hanson.classList.add("slideInUp");
+				}, 3000);
+			} else {//При смене слайда
+				this.hanson.classList.remove("slideInUp");
+			}
+		} catch (error) { }
+
 		//Сначала скроем все слайды
 		this.slides.forEach(slide => {
 			slide.style.display = "none";
@@ -41,6 +56,11 @@ export default class Slider {
 	}
 
 	render() {
+		//Всплывающий со временем блок на 3 слайде
+		try {
+			this.hanson = document.querySelector(".hanson");
+		} catch (error) { }
+
 		this.btns.forEach(item => {
 			item.addEventListener("click", () => {
 				this.plusSlides(1);
