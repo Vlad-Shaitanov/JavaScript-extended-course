@@ -5,6 +5,8 @@ export default class Slider {
 		btns = null,
 		next = null,
 		prev = null,
+		prevModuleBtns = null,
+		nextModuleBtns = null,
 		activeClass = "",
 		animate,
 		autoplay } = {}) {
@@ -21,6 +23,10 @@ export default class Slider {
 		//Переключатели мини-слайдеров
 		this.next = document.querySelector(next);
 		this.prev = document.querySelector(prev);
+
+		//Горизонтальные переключатели на странице модулей
+		this.prevModuleBtns = document.querySelectorAll(prevModuleBtns);
+		this.nextModuleBtns = document.querySelectorAll(nextModuleBtns);
 
 		//Активный класс
 		this.activeClass = activeClass;

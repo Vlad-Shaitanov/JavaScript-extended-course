@@ -3,8 +3,8 @@
 import Slider from "./slider";
 
 export default class MainSlider extends Slider {
-	constructor(btns) {
-		super(btns);
+	constructor(btns, prevModuleBtns, nextModuleBtns) {
+		super(btns, prevModuleBtns, nextModuleBtns);
 	}
 
 	//Инициализация слайдера
@@ -46,29 +46,48 @@ export default class MainSlider extends Slider {
 		this.showSlides(this.slideIndex += n);
 	}
 
+	bindTriggers() {
+		this.btns.forEach(item => {
+			item.addEventListener("click", () => {
+				this.plusSlides(1);
+			});
+
+			//Переключение на первый слайд по клику на лого
+			item.parentNode.previousElementSibling.addEventListener("click", (event) => {
+				event.preventDefault();
+				this.slideIndex = 1;
+
+				//Повторная инициализация слайдера
+				this.showSlides(this.slideIndex);
+			});
+		});
+
+		//Кнопки на странице с модулями
+		this.prevModuleBtns.forEach(item => {
+			item.addEventListener("click", () => {
+				event.stopPropagation();
+				event.preventDefault();
+				this.plusSlides(-1);
+			});
+		});
+
+		this.nextModuleBtns.forEach(item => {
+			item.addEventListener("click", (event) => {
+				event.stopPropagation();
+				event.preventDefault();
+				this.plusSlides(1);
+			});
+		});
+	}
+
 	render() {
-		try {
+		if (this.container) {//Условие для корректной работы с другими страницами сайта
 			//Всплывающий со временем блок на 3 слайде
 			try {
 				this.hanson = document.querySelector(".hanson");
 			} catch (error) { }
-
-			this.btns.forEach(item => {
-				item.addEventListener("click", () => {
-					this.plusSlides(1);
-				});
-
-				//Переключение на первый слайд по клику на лого
-				item.parentNode.previousElementSibling.addEventListener("click", (event) => {
-					event.preventDefault();
-					this.slideIndex = 1;
-
-					//Повторная инициализация слайдера
-					this.showSlides(this.slideIndex);
-				});
-			});
-
 			this.showSlides(this.slideIndex);
-		} catch (e) { }
+			this.bindTriggers();
+		}
 	}
 }
