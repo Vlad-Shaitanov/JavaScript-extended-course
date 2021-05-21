@@ -47,26 +47,28 @@ export default class MainSlider extends Slider {
 	}
 
 	render() {
-		//Всплывающий со временем блок на 3 слайде
 		try {
-			this.hanson = document.querySelector(".hanson");
-		} catch (error) { }
+			//Всплывающий со временем блок на 3 слайде
+			try {
+				this.hanson = document.querySelector(".hanson");
+			} catch (error) { }
 
-		this.btns.forEach(item => {
-			item.addEventListener("click", () => {
-				this.plusSlides(1);
+			this.btns.forEach(item => {
+				item.addEventListener("click", () => {
+					this.plusSlides(1);
+				});
+
+				//Переключение на первый слайд по клику на лого
+				item.parentNode.previousElementSibling.addEventListener("click", (event) => {
+					event.preventDefault();
+					this.slideIndex = 1;
+
+					//Повторная инициализация слайдера
+					this.showSlides(this.slideIndex);
+				});
 			});
 
-			//Переключение на первый слайд по клику на лого
-			item.parentNode.previousElementSibling.addEventListener("click", (event) => {
-				event.preventDefault();
-				this.slideIndex = 1;
-
-				//Повторная инициализация слайдера
-				this.showSlides(this.slideIndex);
-			});
-		});
-
-		this.showSlides(this.slideIndex);
+			this.showSlides(this.slideIndex);
+		} catch (e) { }
 	}
 }

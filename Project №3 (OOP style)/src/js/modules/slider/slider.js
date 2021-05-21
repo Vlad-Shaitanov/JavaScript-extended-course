@@ -13,7 +13,7 @@ export default class Slider {
 
 		/*Слайды, которые нужно перемещать(в текущем проекте все слайды являются
 		дочерними элементами страницы)*/
-		this.slides = this.container.children;
+		try { this.slides = this.container.children; } catch (e) { }
 
 		//Переключатели(стрелки) слайдера
 		this.btns = document.querySelectorAll(btns);

@@ -56,7 +56,7 @@ gulp.task("watch", () => {
 		server: {
 			baseDir: "./dist/",
 			serveStaticOptions: {
-				extensions: ["html"]
+				extensions: ["html"]//Опция позволяет открывать несколько страниц(для много страничных сайтов)
 			}
 		},
 		port: 4000,

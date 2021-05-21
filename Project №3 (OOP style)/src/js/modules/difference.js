@@ -3,13 +3,16 @@
 export default class Difference {
 
 	constructor(oldOfficer, newOfficer, items) {
-		this.oldOfficer = document.querySelector(oldOfficer);//Левый блок
-		this.newOfficer = document.querySelector(newOfficer);//Правый блок
-		this.oldItems = this.oldOfficer.querySelectorAll(items);//Элементы в левом блоке
-		this.newItems = this.newOfficer.querySelectorAll(items);//Элементы в правом блоке
 
-		this.oldCounter = 0;//Счетчик открытых элементов в левом блоке
-		this.newCounter = 0;//Счетчик открытых элементов в правом блоке
+		try {
+			this.oldOfficer = document.querySelector(oldOfficer);//Левый блок
+			this.newOfficer = document.querySelector(newOfficer);//Правый блок
+			this.oldItems = this.oldOfficer.querySelectorAll(items);//Элементы в левом блоке
+			this.newItems = this.newOfficer.querySelectorAll(items);//Элементы в правом блоке
+
+			this.oldCounter = 0;//Счетчик открытых элементов в левом блоке
+			this.newCounter = 0;//Счетчик открытых элементов в правом блоке
+		} catch (e) { }
 	}
 
 	//Привязка кнопок
@@ -44,9 +47,12 @@ export default class Difference {
 
 	init() {
 
-		this.hideItems(this.oldItems);
-		this.hideItems(this.newItems);
-		this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
-		this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
+		try {
+			this.hideItems(this.oldItems);
+			this.hideItems(this.newItems);
+			this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
+			this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
+
+		} catch (e) { }
 	}
 }
