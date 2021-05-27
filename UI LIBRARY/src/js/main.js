@@ -1,6 +1,10 @@
 "use strict";
 
-import "./lib/lib";
+import $ from "./lib/lib";
 
-$(".active").toggle();
+$("button").on("click", function () {
+	//Меняем класс тому элементу, на который нажали
+	$(this).toggleClass("active");
+});
+
 

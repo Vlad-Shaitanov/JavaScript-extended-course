@@ -12,6 +12,16 @@ $.prototype.init = function (selector) {
 		return this;// ПРосто пустой объект {}
 	}
 
+	//ПРоверим, является переданный аргумент селектором или нод-узлом
+	if (selector.tagName) {
+		//Записываем в первую позицию
+		this[0] = selector;
+		this.length = 1;
+
+		//Возвращаем объект
+		return this;
+	}
+
 	//Создаем объект с нужными свойствами
 	Object.assign(this, document.querySelectorAll(selector));
 
