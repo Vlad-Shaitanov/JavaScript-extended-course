@@ -7,4 +7,10 @@ $("button").on("click", function () {
 	$(this).toggleClass("active");
 });
 
+const img = document.createElement("img");
+document.querySelector(".wrapper").appendChild(img);
+$("img").setAttr("href", "assets/img");
+$("img").setAttr("width", "300");
+$("img").removeAttr();
+
 
