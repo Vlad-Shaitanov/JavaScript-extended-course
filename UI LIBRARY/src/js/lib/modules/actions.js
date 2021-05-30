@@ -93,3 +93,68 @@ $.prototype.find = function (selector) {
 	//Возвращаем модифицированный объект
 	return this;
 };
+
+//Определение ближайшего блока по заданному селектору
+$.prototype.closest = function (selector) {
+	//Количество найденных элементов
+	let counter = 0;
+
+	for (let i = 0; i < this.length; i++) {
+		//Записываем значение
+		this[i] = this[i].closest(selector);
+		counter++;
+	}
+
+	/*Удаляем лишние элементы(те, которые остались неперезаписанными после
+	прохода через цикл)*/
+	const objLength = Object.keys(this).length;
+	for (; counter < objLength; counter++) {
+		delete this[counter];
+	}
+
+	//Возвращаем модифицированный объект
+	return this;
+};
+
+/*ПОлучение всех соседних элементов, не включая сам элемент, на котором было
+произведено действие*/
+$.prototype.siblings = function () {
+	//Количество найденных элементов
+	let numberOfItems = 0;
+	//Количество новых элементов, которые мы записали в this
+	let counter = 0;
+
+	//Создаем поверхностную копию объекта
+	const copyObj = Object.assign({}, this);
+
+	for (let i = 0; i < copyObj.length; i++) {
+		const arr = copyObj[i].parentNode.children;
+
+
+		//Записываем элементы в массив
+		for (let j = 0; j < arr.length; j++) {
+			/*Если текущий элемент равен перебираемому элементу j, то
+			не будем записывать его в главный объект*/
+			if (copyObj[i] === arr[j]) {
+				continue;
+			}
+
+			this[counter] = arr[j];
+			counter++;
+		}
+
+		numberOfItems += arr.length - 1;
+	}
+
+	this.length = numberOfItems;
+
+	/*Удаляем лишние элементы(те, которые остались неперезаписанными после
+	прохода через цикл)*/
+	const objLength = Object.keys(this).length;
+	for (; numberOfItems < objLength; numberOfItems++) {
+		delete this[numberOfItems];
+	}
+
+	//Возвращаем модифицированный объект
+	return this;
+};
