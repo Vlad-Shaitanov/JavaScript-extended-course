@@ -25,3 +25,5 @@ console.log($(".some").closest(".findme"));
 
 console.log($(".more").eq(0).siblings());
 console.log($(".findme").siblings());
+
+$(".findme").fadeIn(5000);
