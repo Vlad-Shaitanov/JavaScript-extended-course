@@ -44,6 +44,24 @@ $.prototype.animateOverTime = function (dur, cb, fin) {
 	return _animateOverTime;
 };
 
+//Техническая функция
+// $.prototype.toggleAnim = function (dur, fin, anim, display = "block") {
+
+// 	function _toggleAnim() {
+// 		if (anim) {
+// 			if (anim == "in") {
+
+// 			}
+
+// 			if (anim == "out") {
+
+// 			}
+// 		}
+// 	}
+
+// 	return _toggleAnim;
+// };
+
 //Анимация, показывающая элементы
 $.prototype.fadeIn = function (dur, display, fin) {
 
@@ -84,3 +102,39 @@ $.prototype.fadeOut = function (dur, fin) {
 	//Возвращаем объект
 	return this;
 };
+
+//Переключение анимации
+$.prototype.fadeToggle = function (dur, display, fin) {
+
+	for (let i = 0; i < this.length; i++) {
+
+		//Если скомпилированное св-во имеет значение none
+		if (window.getComputedStyle(this[i]).display === "none") {
+			this[i].style.display = display || "block";//Другой формат записи параметра по умолчанию
+
+			const _fadeIn = (complection) => {
+				this[i].style.opacity = complection;
+			};
+
+			const ani = this.animateOverTime(dur, _fadeIn, fin);
+			requestAnimationFrame(ani);
+		} else {
+			const _fadeOut = (complection) => {
+				this[i].style.opacity = 1 - complection;
+
+				//Если элемент стал полностью прозрачным, мы его скрываем со страницы
+				if (complection === 1) {
+					this[i].style.display = "none";
+				}
+
+			};
+
+			const ani = this.animateOverTime(dur, _fadeOut, fin);
+			requestAnimationFrame(ani);
+		}
+	}
+	//Возвращаем объект
+	return this;
+};
+
+//TODO отрефакторить методы fadeIn и fadeOut через техническую функцию
