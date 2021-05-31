@@ -2,10 +2,10 @@
 
 import $ from "./lib/lib";
 
-$("button").on("click", function () {
-	//Меняем класс тому элементу, на который нажали
-	$("div").eq(2).toggleClass("active");
-});
+// $("button").on("click", function () {
+// 	//Меняем класс тому элементу, на который нажали
+// 	$("div").eq(2).toggleClass("active");
+// });
 
 // const img = document.createElement("img");
 // document.body.appendChild(img);
@@ -13,17 +13,29 @@ $("button").on("click", function () {
 // $("img").setAttr("width", "300");
 // $("img").removeAttr();
 
-console.log($("button").html("hello"));
+//console.log($("button").html("hello"));
 
-$('div').click(function () {
-	console.log($(this).index());
+// $('div').click(function () {
+// 	console.log($(this).index());
+// });
+
+//console.log($("div").eq(2).find(".more"));
+
+// console.log($(".some").closest(".findme"));
+
+// console.log($(".more").eq(0).siblings());
+// console.log($(".findme").siblings());
+
+// $(".findme").fadeIn(5000);
+
+$("#first").on("click", () => {
+	$("div").eq(1).fadeOut(800);
 });
 
-console.log($("div").eq(2).find(".more"));
+$("[data-count='second']").on("click", () => {
+	$("div").eq(2).fadeOut(800);
+});
 
-console.log($(".some").closest(".findme"));
-
-console.log($(".more").eq(0).siblings());
-console.log($(".findme").siblings());
-
-$(".findme").fadeIn(5000);
+$("button").eq(2).on("click", () => {
+	$(".w-500").fadeIn(800);
+});
