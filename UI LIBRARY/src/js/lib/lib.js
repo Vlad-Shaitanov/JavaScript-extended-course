@@ -7,6 +7,7 @@ import "./modules/handlers";
 import "./modules/actions";
 import "./modules/attributes";
 import "./modules/effects";
+import "./components/dropdown";
 
 //?Здесь мы будет дополнять функционал $, добавляя различные методы
 
