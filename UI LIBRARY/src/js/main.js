@@ -53,3 +53,42 @@ $(".wrap").html(
 	`
 );
 $(".dropdown-toggle").dropdown();
+
+//Динамическое модальное окно, передав объект настроек
+$("#trigger").click(() => {
+	$("#trigger").createModal({
+		text: {
+			title: "Modal title",
+			body: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat rerum ut
+			recusandae, provident soluta tenetur esse dolorem a.Necessitatibus assumenda officia, vel
+			repudiandae vitae numquam fugiat.Distinctio illo consequuntur veritatis.`
+		},
+
+		btns: {
+			count: 3,
+			settings: [
+				["Close",
+					["btn-danger", "mr-10"],
+					true
+				],
+				[
+					"Save changes",
+					["btn-success"],
+					false,
+					() => {
+						alert("Данные сохранены!");
+					}
+				],
+				[
+					"Another button",
+					["btn-warning", "ml-10"],
+					false,
+					() => {
+						alert("Осторожно, что-то пошло не так!");
+					}
+				],
+			],
+
+		},
+	});
+});
