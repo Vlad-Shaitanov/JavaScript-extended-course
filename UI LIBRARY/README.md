@@ -86,6 +86,24 @@
 	```
 
 
+### TABS
+- Для создания табов(вкладок) использовать следующий шаблон:
+	```
+	<div class="tab mt-20 block-center">
+		<div class="tab-panel" data-tabpanel>
+			<div class="tab-item tab-item--active">Content #1</div>
+			<div class="tab-item">Content #2</div>
+			<div class="tab-item">Content #3</div>
+		</div>
+		<div class="tab-content tab-content--active"></div>
+		<div class="tab-content"></div>
+		<div class="tab-content"></div>
+	</div>
+	```
+
+- Количество табов опционально.
+
+
 ***
 ## Создание отдельных элементов
 ### Продуктовая карточка:

@@ -26,7 +26,7 @@ import $ from "./lib/lib";
 // console.log($(".more").eq(0).siblings());
 // console.log($(".findme").siblings());
 
-// $(".findme").fadeIn(5000);
+$(".findme").fadeIn(5000);
 
 $("#first").on("click", () => {
 	$("div").eq(1).fadeToggle(800);
@@ -52,6 +52,19 @@ $(".wrap").html(
 	</div>
 	`
 );
+$(".tab-panel .drop").html(
+	`
+	<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton2">Dropdown button</button>
+			<div class="dropdown-menu" data-toggle-id="dropdownMenuButton2">
+				<a href="#" class="dropdown-item">Action #1</a>
+				<a href="#" class="dropdown-item">Action #2</a>
+				<a href="#" class="dropdown-item">Action #3</a>
+			</div>
+	</div>
+	`
+);
+
 $(".dropdown-toggle").dropdown();
 
 //Динамическое модальное окно, передав объект настроек

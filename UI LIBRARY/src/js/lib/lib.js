@@ -9,6 +9,7 @@ import "./modules/attributes";
 import "./modules/effects";
 import "./components/dropdown";
 import "./components/modal";
+import "./components/tab";
 
 //?Здесь мы будет дополнять функционал $, добавляя различные методы
 
