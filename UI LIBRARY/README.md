@@ -103,6 +103,29 @@
 
 - Количество табов опционально.
 
+### ACCORDION
+- Для создания на странице аккордеона, следует использовать шаблон:
+	```
+	<div class="accordion">
+			<div class="accordion-head">
+				<span>Заголовок</span>
+			</div>
+			<div class="accordion-content">
+				<div class="accordion-inner">
+					Lorem
+				</div>
+			</div>
+			<div class="accordion-head">
+				<span>Заголовок 2</span>
+			</div>
+			<div class="accordion-content">
+				<div class="accordion-inner">
+					Lorem
+				</div>
+			</div>
+	</div>
+	```
+
 
 ***
 ## Создание отдельных элементов
