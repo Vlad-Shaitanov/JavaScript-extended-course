@@ -105,3 +105,6 @@ $("#trigger").click(() => {
 		},
 	});
 });
+
+$().get('https://jsonplaceholder.typicode.com/todos')
+	.then(result => console.log(result));

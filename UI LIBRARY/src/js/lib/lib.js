@@ -12,6 +12,7 @@ import "./components/modal";
 import "./components/tab";
 import "./components/accordion";
 import "./components/carousel";
+import "./services/requests";
 
 //?Здесь мы будет дополнять функционал $, добавляя различные методы
 
